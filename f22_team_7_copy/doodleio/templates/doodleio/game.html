@@ -1,0 +1,118 @@
+{% extends "doodleio/base.html" %}
+
+{% block title %} doodle.io {% endblock %}
+
+{% block page-name %}target word: <span id="target"></span>
+  <div id="status-message"></div>
+{% endblock %}
+
+{% block page-content %}
+
+  <div class="row">
+    <div class="col-md-auto text-center">
+      <div class= "column">
+        <!-- <div id="is_drawing" style="display:none">{{target_word}}</div> -->
+        <!-- <div id="is_drawing" style="display:none">it is your turn to draw</div> -->
+        <!-- <div id = "can_draw"> status of can_draw: {{can_draw}}</div> -->
+        <ul id="players">
+          {% for u in players %}
+            <div class="player" style="background-color:{{u.color}}">
+                {{u.name}}  {{u.score}}
+            </div>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-auto text-center align-items-center">
+      <div class="container" id="status"></div>
+      <div class="container-md">
+        <div id = "drawingbox"> 
+          <canvas id="my-canvas" width="800" height="600"></canvas>
+          <button class = "artbuttons" type="submit" id="pencil" onclick="displayColorInput(true)">
+            <img src="static/svg/pencil.svg">
+            <input type="hidden" id="penColor" value="#000000">
+          </button>
+          <button class = "artbuttons" type="submit" id="eraser"> 
+            <img src="static/svg/eraser.svg">
+          </button>
+          <button class = "artbuttons" type="submit" id="fill">
+            <img src="static/svg/fill.svg">
+          </button>
+          <button class = "artbuttons" type="submit" id="stroke" onclick="displayLineWidth(true)">
+            <img src="static/svg/stroke.svg">
+            <input type="hidden" min="1" max="20" value="2" id="lineWidth">
+          </button>
+          <button class = "artbuttons" type="submit" id="clear">
+            <img src="static/svg/clear.svg">
+          </button>
+        </div>
+      </div>
+      <div class="container" id="guess_box">
+        <!-- <form method="post" action="{% url 'game' %}" placeholder = "Enter Guess"> -->
+        <!-- <table>
+            {{form}}
+        </table> -->
+        <input id="item" type="text" name="item">
+        {% csrf_token %}
+        <button id = "guessbutton" type="submit" onclick="addChat()">guess</button>
+        <!-- </form> -->
+      </div>
+      <!-- <div class="container" id="next_box" style="display:none">
+        {% csrf_token %}
+        <button id = "guessbutton" type="submit" onclick="addChat()">new round</button>
+      </div> -->
+      <form id="next_box" action="{% url 'new-round' %}" method="POST" style="display:none">
+        <input type="submit" value="new round" id ="next_button">
+        {% csrf_token %}
+      </form> 
+      
+    </div>
+
+    <div class="col-sm-auto text-center">
+      <div id="timer">{{time_left}}</div>
+      <div class="chatbox" id="chatbox">
+      </div>
+
+
+  </div>
+
+	</div>
+
+  <script>
+
+    const addChatURL = "{% url 'ajax-add-chat' %}"
+    var can_draw_bool = {{ can_draw }}
+    var target_word = "{{ target_word }}"
+    var hidden_target_word = "{{ hidden_target_word }}"
+    var all_in_game = false
+
+  
+    // Call getList() as soon as page is finished loading to display the todolist
+    window.onload = setUpGame(can_draw_bool);
+
+    // // ... also call getList every 5 seconds hereafter to update the list
+    window.setInterval(getChat, 500);
+    window.setInterval(securityCheck, 1000);
+    
+    const timer = document.getElementById('timer')
+    const config = { attributes: true, childList: true, subtree: true };
+    const callback = () => { 
+      checkTargetWord(can_draw_bool, target_word, hidden_target_word);
+    };
+    const observer = new MutationObserver(callback);
+    observer.observe(timer, config);
+    if (can_draw_bool) {
+      document.getElementById("is_drawing").style.display = "block"
+    } else {
+      document.getElementById("pencil").style.display = "none"
+      document.getElementById("eraser").style.display = "none"
+      document.getElementById("stroke").style.display = "none"
+      document.getElementById("fill").style.display = "none"
+      document.getElementById("clear").style.display = "none"
+    }
+    // window.setInterval(drawingFunctionality(can_draw_bool), 1000);
+
+</script>
+
+{% endblock %}

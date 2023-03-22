@@ -1,0 +1,14 @@
+{% extends "doodleio/base.html" %}
+
+{% block title %} doodle.io {% endblock %}
+
+{% block page-name %}Game Over! Want to play again?{% endblock %}
+
+{% block page-content %}
+
+<form id="next_box" action="{% url 'gameover' %}" method="GET" style="display:block">
+    <input type="submit" value="start over" id ="gameover_button">
+    {% csrf_token %}
+</form> 
+
+{% endblock %}

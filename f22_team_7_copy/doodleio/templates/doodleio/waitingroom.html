@@ -1,0 +1,26 @@
+{% extends "doodleio/base.html" %}
+
+{% block title %} doodle.io {% endblock %}
+
+{% block page-name %}
+<div id="wait_div">Waiting for other players...</div>
+<div>Players in game: <div id="num_players">{{num_players}}</div></div>
+<form id="go_button" action="{% url 'try-enter' %}" method="POST" style="display:none">
+  <input type="submit" value="play">
+  {% csrf_token %}
+</form> 
+{% endblock %}
+
+{% block page-content %}
+
+<script>
+
+  const waitUrl = "{% url 'waitingroom' %}"
+
+  window.onload = checkUsers;
+
+  window.setInterval(checkUsers, 2000);
+
+</script>
+
+{% endblock %}

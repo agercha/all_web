@@ -1,0 +1,27 @@
+{% extends "doodleio/base.html" %}
+
+{% block title %} doodle.io {% endblock %}
+
+
+{% block page-content %}
+    {% for u in players %}
+        <div class="leaderboard">
+            <span class='leaderboard-name'>{{u.name}}</span>
+            <span class='leaderboard-score'>{{u.score}}</span>
+        </div>
+    {% endfor %}
+    <form id="next_box" action="{% url 'gameover' %}" method="POST" style="display:none">
+        <input type="submit" value="gameover" id ="gameover_button">
+        {% csrf_token %}
+    </form> 
+
+
+<script>
+    
+    window.onload = checkUsersLeaderboard;
+    
+    window.setInterval(checkUsersLeaderboard, 2000);
+    
+</script>
+
+{% endblock %}

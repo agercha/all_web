@@ -1,0 +1,304 @@
+body{
+  /* background-image: url('svg/Particles-0.1s-2174px.svg'); */
+  font-family: OCR A Std, monospace
+}
+form{
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+}
+
+/*Game Page CSS*/
+
+input{
+  margin: 10px;
+  background-color: #98CC28;
+  height: 10vh;
+  width: 45vw;
+  font-size: 25px;
+  border: 1px solid #98CC28;
+  border-radius: 5px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);  
+}
+
+.page-header{
+  background-color:#81B3FF;
+  color: white;
+  font-size: 30px;
+  margin-bottom: 20px;
+  padding:30px;
+  height: 70px;
+}
+
+#id_site_name{
+  letter-spacing: 3px;
+  
+}
+
+#my-canvas{
+  position:absolute;
+  z-index:2;
+  display:block;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+#penColor{
+  height:30px;
+  width:40px;
+  display:inline-block;
+  vertical-align:middle;
+  position:relative;
+  padding-right:10px;
+  margin:0px;
+  border:none;
+}
+
+#penColor::-webkit-color-swatch {
+  border-radius:10px;
+}
+
+#lineWidth{
+  height:25px;
+  width:110px;
+  display:inline-block;
+  vertical-align:middle;
+  position:relative;
+  margin-right:10px;
+  border:none;
+}
+
+#drawingbox{
+  box-sizing: border-box;
+  position:relative;
+
+  width: 55vw;
+  height: 62vh;
+
+  background: white;
+  border: 7px solid#81B3FF;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+
+#guessbutton{
+  background: #98CC28;
+  font-size: 25px;
+  padding: 12px;
+  border-radius: 5px;
+  border-color: #98CC28;
+}
+
+.player{
+  width: 13vw;
+  margin: 10px;
+  padding: 5px;
+  font-size: 25px;
+  color: white;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #C780FF;
+  border-radius: 5px;
+}
+
+.leaderboard{
+  width: 50%;
+  height: 10vh;
+  background: #FFC42D;
+  position: relative;
+  left: 20%;
+  top: 5%;
+  border-radius: 2px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  margin: 5vh;
+}
+
+.leaderboard-name{
+  left: 10%;
+  top: 20%;
+  position: absolute;
+  font-size: 30px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  letter-spacing: 0.085em;
+}
+
+.leaderboard-score{
+  left: 80%;
+  top: 20%;
+  position: absolute;
+  font-size: 30px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.085em;
+}
+
+.chatbox{
+  width: 20vw;
+  height: 65vh;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  border-radius: 5px;
+  border: 7px solid #FFC42D;
+  background: white;
+  font-size: smaller;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  overflow-anchor: bottom;
+}
+
+.chatMessage{
+  text-align: left;
+  padding: 5px;
+  line-height: 1;
+  border: 2px rgba(238, 185, 50, 0.829) solid;
+}
+
+.chat_username{
+  font-weight: 900;
+}
+
+.artbuttons{
+  position: relative;
+  z-index:3;
+  top: 85%;
+  border-radius: 10px;
+  padding: 1px;
+  margin: 0.5vw;
+  text-align:center;
+}
+
+#pencil{
+  border-color: #FFC42D;
+  background: #FFC42D;
+}
+
+#eraser{
+  border-color: #FF8080;
+  background: #FF8080;
+}
+
+#stroke{
+  border-color: #98CC28;
+  background: #98CC28;
+}
+
+#fill{
+  border-color: #C780FF;
+  background: #C780FF;
+}
+
+#clear{
+  border-color: #F33E3E;
+  background: #F33E3E;
+}
+
+#timer{
+  font-size: 35px;
+  border: 7px solid #FF8080;
+  background: #FF8080;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/*Home Page CSS
+source: https://alvarotrigo.com/blog/css-text-animations/ */
+
+.content {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  left: 0px;
+
+}
+
+.content h3 {
+  font-weight: 500;
+  margin-right: 100px;
+  color: #fff;
+  font-size: 12em;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  text-align: center;
+}
+
+.content h3:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #81B3FF;
+}
+
+.content h3:nth-child(2) {
+  color: #81B3FF;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+#spacer{
+  height: 250px;
+}
+
+#usernameform{
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 20px;
+  
+}
+
+#letsdoodle{
+
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 18px;
+  margin: 15px;
+  background: #FF8080;
+
+}
+
+#next_button{
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+}
+
+#gameover_button{
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+}

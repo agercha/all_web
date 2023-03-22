@@ -1,0 +1,54 @@
+body {
+  background-color: aqua;
+  text-shadow: 2px 2px 4px yellow;
+}
+div {
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 36px;
+  color: hotpink;
+  font-family: Brush Script MT;
+}
+div#status {
+  background-color: yellow;
+  text-shadow: 2px 2px 4px cyan;
+  font-size: 48px;
+}
+table {
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+td {
+  height:50px;
+  width:50px;
+  padding:0px;
+  background-color: hotpink;
+  border-color: yellow;
+  border-width: 5px;
+  border-style: solid;
+  font-size: 24px;
+  color:yellow;
+  text-shadow: 2px 2px 4px hotpink;
+}
+input {
+  font-size: 36px;
+  font-family:  	Brush Script MT;
+  border-style: none;
+}
+input.text {
+  background-color: hotpink;
+  color: yellow;
+  box-shadow: 2px 2px 4px yellow;
+  font-size: 24px;
+}
+button.button {
+  border-style:none;
+  background-color: transparent;
+  color: hotpink;
+  text-shadow: 2px 2px 4px yellow;
+  border-color: hotpink;
+  text-decoration: underline;    
+}

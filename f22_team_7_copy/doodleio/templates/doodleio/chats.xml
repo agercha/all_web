@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE messages [
+    <!ELEMENT messages (message*)>
+    <!ELEMENT message (id,text,username)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT text (#PCDATA)>
+    <!ELEMENT username (#PCDATA)>
+]>
+
+<messages>
+    {% for message in message %}
+        <message>
+            <id>{{message.id}}</id>
+            <text>{{message.text}}</text>
+            <user>{{ message.username }}</user>
+        </message>
+    {% endfor %}
+</messages>

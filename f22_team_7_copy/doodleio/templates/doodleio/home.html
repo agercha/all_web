@@ -1,0 +1,28 @@
+{% extends "doodleio/base.html" %}
+{% block title %} doodle.io {% endblock %}
+{% block page-content %}
+
+<div class="container page-center text-center">
+  <div class="container">
+    <div class="content">
+      <h3>doodle.io</h3>
+      <h3>doodle.io</h3>
+    </div>
+  </div>
+  <div id="spacer"> </div>
+  <div class="container">
+    <form method="post" action="{% url 'home' %}" id="usernameform">
+      <div>{{error}}</div>
+      <table>
+          {{form}}
+      </table>
+      {% csrf_token %}
+      <button type="submit" id="letsdoodle" style="display:{{display_style}}">
+        Let's Doodle!
+      </button>
+      <div id="error">{{error_message}}</div>
+    </form>
+</div>
+</div>
+
+{% endblock %}

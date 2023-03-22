@@ -1,0 +1,50 @@
+body {
+  background-color: aqua;
+  text-shadow: 2px 2px 4px yellow;
+}
+h1 {
+  font-size: 48px;
+}
+div {
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 36px;
+  color: hotpink;
+  font-family: Brush Script MT;
+}
+div#status {
+  background-color: yellow;
+  text-shadow: 2px 2px 4px cyan;
+}
+table {
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+td {
+  padding:25px;
+  background-color: hotpink;
+  border-color: yellow;
+  border-width: 5px;
+  border-style: solid;
+}
+input {
+  font-size: 36px;
+  font-family:  	Brush Script MT;
+  border-style: none;
+}
+input#guess_text {
+  background-color: hotpink;
+  color: yellow;
+  box-shadow: 2px 2px 4px yellow;
+}
+button#guess_button {
+  border-style:none;
+  background-color: transparent;
+  color: hotpink;
+  text-shadow: 2px 2px 4px yellow;
+  border-color: hotpink;
+  text-decoration: underline;     
+}
