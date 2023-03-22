@@ -1,0 +1,14 @@
+{% extends "socialnetwork/logged_in.html" %}
+
+{% block content %}
+  <div id="id_page_name">
+    {{header}}
+  </div>
+  <img src="{{picture_src}}" id="id_user_picture" width="25%">
+  <div id="id_user_bio">
+    {{user_bio}}
+  </div>
+  <button id="id_{{follow_status}}"> 
+    {{follow_status}}
+  </button>
+{% endblock %}crying_selfportrait_square.jpg

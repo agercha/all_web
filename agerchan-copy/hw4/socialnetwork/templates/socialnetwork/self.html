@@ -1,0 +1,30 @@
+{% extends "socialnetwork/logged_in.html" %}
+
+{% block content %}
+  <div id="id_page_name">
+    profile page for {{user.first_name}} {{user.last_name}}
+  </div>
+  <img src="{{picture_src}}" id="id_user_picture" width="25%">
+  <div>
+    <input id="id_bio_input_text">
+    </input>
+  </div>
+  <div>
+    profile picture:
+    <button id="id_profile_picture">
+      choose file
+    </button>
+    no file chosen
+  </div>
+  <button id="id_update_profile_button">
+    submit
+  </button>
+  <div id="follow_list">
+    you are following:
+    <ul>
+      {% for friend in friends %}
+        <li><a href={{friend.link}} id="id_profile_link_{{friend.id}}">{{friend.name}}</a></li>
+      {% endfor %}
+    </ul>    
+  </div>
+{% endblock %}crying_selfportrait_square.jpg

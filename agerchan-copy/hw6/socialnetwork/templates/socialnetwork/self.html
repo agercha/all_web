@@ -1,0 +1,32 @@
+{% extends "socialnetwork/logged_in.html" %}
+
+{% block content %}
+  <div id="id_page_name">
+    profile page for {{user.first_name}} {{user.last_name}}
+  </div>
+  {% if not user_pfp %}
+    <img src="../static/socialnetwork/annagerchanovskyhead_flipped.jpeg" id="id_user_picture">
+  {% else %}
+    <img src="{% url 'get_pfp' user%}" id="id_user_picture">
+  {% endif %}
+  <div>
+    {{user_bio}}
+  </div>
+  <br>
+  <form method="POST" action="{% url 'self' %}" enctype="multipart/form-data">
+    <table>
+      {{profile_form}}
+    </table>
+    <input type="submit" value="submit" id="id_update_profile_button">
+    {% csrf_token %}
+  </form>
+  <br>
+  <div id="follow_list">
+    you are following:
+    <ul>
+      {% for friend in friends %}
+        <li><a href="{% url 'get_profile' friend %}" id="id_profile_link_{{friend}}">{{friend}}</a></li>
+      {% endfor %}
+    </ul>    
+  </div>
+{% endblock %}crying_selfportrait_square.jpg

@@ -1,0 +1,30 @@
+
+{% extends "socialnetwork/logged_in.html" %}
+
+{% block content %}
+  <h1 id="id_page_name">GLOBAL STREAM</h1>
+  <div class="post_input_text">
+    <label>new post:</label>
+    <input type="text" name="post_input_text" class="text" id="id_post_input_text">
+    <button onclick="addPost()" id="id_post_button">submit </button>
+    <span class="error" id="error"></span>
+    {% csrf_token %}
+  </div> 
+
+  <div id="post-stream">
+  </div>
+
+  <script>
+  
+    // If you wish to use the template language's URL reverse function, you can
+    // do it here in the HTML file, but not in the JS file
+    const addPostURL = "{% url 'ajax-add-post' %}"
+    const addCommentURL = "{% url 'ajax-add-comment' %}"
+  
+    // Call getList() as soon as page is finished loading to display the todolist
+    window.onload = getStream;
+  
+    window.setInterval(getStream, 1000);
+  </script>
+
+{% endblock %}

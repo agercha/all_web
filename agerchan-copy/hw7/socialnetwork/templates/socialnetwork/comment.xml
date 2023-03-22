@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE comments [
+    <!ELEMENT comments (comment*)>
+    <!ELEMENT comment_content (id,contn,date_time,comments,author)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT content (#PCDATA)>
+    <!ELEMENT date_time (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+]>
+
+<posts>
+    {% for comments in comments %}
+        <comment>
+            <id>{{comment.id}}</id>
+            <text>{{comment.content}}</text>
+            <text>{{comment.date_time}}</text>
+            <User>{{ comment.author }}</User>
+        </comment>
+    {% endfor %}
+</posts>

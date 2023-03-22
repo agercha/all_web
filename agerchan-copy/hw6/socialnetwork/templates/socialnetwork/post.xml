@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE posts [
+    <!ELEMENT posts (post*)>
+    <!ELEMENT post_content (id,content,date_time,comments,author)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT content (#PCDATA)>
+    <!ELEMENT date_time (#PCDATA)>
+    <!ELEMENT comments (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+]>
+
+<posts>
+{% for post in posts %}
+  <post>
+      <id>{{post.id}}</id>
+      <text>{{post.content}}</text>
+      <text>{{post.date_time}}</text>
+      <Comment>{{ post.comments }}</Comment>
+      <User>{{ post.author }}</User>
+  </post>
+  {% endfor %}  
+</items>

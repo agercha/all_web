@@ -1,0 +1,52 @@
+
+{% extends "socialnetwork/logged_in.html" %}
+
+{% block content %}
+  <h1 id="id_page_name">{{page_name}}</h1>
+  {% for new_post_template in new_post %}
+    new post:
+    <input type="text" name="post_input_text" class="text" id="id_post_input_text">
+    <button class="button" id="id_post_button">
+      post
+    </button>
+  {% endfor %}
+
+  {% for post in posts %}
+    <div id="id_post_div_{{post.id}}" class="post">
+        <span class="post_user"> 
+          <a href="dummy" id="id_post_profile_{{post.id}}" class="post_user_link">
+            {{post.user}}
+          </a>
+        </span>
+        <span id="id_post_text_{{post.id}}" class="post_content">
+          {{post.content}}
+        </span>
+        <span id="id_post_date_time_{{post.id}}" class="post_time">
+          {{post.time}}
+        </span>
+        {% for comment in post.comments %}
+          <div id="{{comment.id}}" class="comment">
+            <span class="post_user">
+              <a href="dummy" id="id_comment_profile_{{comment.id}}" class="post_user_link">
+                {{comment.user}}
+              </a>              
+            </span>
+            <span id="id_comment_text_{{comment.id}}" class="post_content">
+              {{comment.content}}
+            </span>
+            <span id="id_comment_date_time_{{comment.id}}" class="post_time">
+              {{comment.time}}
+            </span>
+          </div>
+        {% endfor%}
+        <div>
+        comment:
+          <input type="text" name="comment_input_text_{{post.id}}" class="text" id="id_comment_input_text_{{post.id}}">
+          <button class="button" id="id_comment_button_{{post.id}}">
+            post
+          </button>
+        </div>
+    </div> 
+    <br>
+  {% endfor %}  
+{% endblock %}

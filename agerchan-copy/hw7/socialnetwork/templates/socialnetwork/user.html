@@ -1,0 +1,16 @@
+{% extends "socialnetwork/logged_in.html" %}
+
+{% block content %}
+  <div id="id_page_name">
+    {{header}}
+  </div>
+  <img src="{% url 'get_pfp' other_user%}" id="id_user_picture">
+  <div id="id_user_bio">
+    {{user_bio}}
+  </div>
+  <button id="id_{{follow_status}}" href="{% url 'follow_unfollow' other_user %}"> 
+    <a href="{% url 'follow_unfollow' other_user %}" class="follow_button">
+      {{follow_status}}
+    </a>
+  </button>
+{% endblock %}crying_selfportrait_square.jpg

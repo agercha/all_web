@@ -1,0 +1,24 @@
+
+{% extends "socialnetwork/logged_in.html" %}
+
+{% block content %}
+  <h1 id="id_page_name">FOLLOWER STREAM</h1>
+  <span class="error" id="error"></span>
+
+  <div id="post-stream">
+  </div>
+
+  <script>
+  
+    // If you wish to use the template language's URL reverse function, you can
+    // do it here in the HTML file, but not in the JS file
+    const addPostURL = "{% url 'ajax-add-post' %}"
+    const addCommentURL = "{% url 'ajax-add-friend-comment' %}"
+  
+    // Call getList() as soon as page is finished loading to display the todolist
+    window.onload = getFriendStream;
+  
+    window.setInterval(getFriendStream, 1000);
+  </script>
+
+{% endblock %}
