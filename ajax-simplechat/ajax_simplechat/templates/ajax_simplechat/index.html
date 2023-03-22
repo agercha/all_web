@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ajax_simplechat/chat.css' %}">
+    <script src="{% static 'ajax_simplechat/chat.js' %}" type="text/javascript"></script>
+    <title>AJAX Chat</title>
+</head>
+
+<body>
+
+<div class="sidenav">
+    <div class="title">Simple Chat</div>
+
+    <div class="user-info">
+        <span class="details">
+            user={{ request.user }}
+        </span>
+        <form action="{% url 'logout' %}">
+            <button>Logout</button>
+        </form>
+    </div>
+
+    <ol id="todo-list">
+    </ol>
+
+    <div id="enter">
+        <!-- <label for="item">Item to add:</label> -->
+        <input id="item" type="text" name="item">
+        <button onclick="addItem()">send</button>
+        <span id="error" class="error"></span>
+    </div>
+</div>
+
+<div>
+    I LOVE THIS GAME!
+    <br>
+    <img src="http://cdn.shopify.com/s/files/1/0045/5960/1782/articles/NILTECH_WEBSITE_BLOG_TUTORIAL_5-11_600x.jpg?v=1531836695">
+</div>
+
+<!-- <hr>
+<a href="{% url 'home' %}">Home</a> -->
+
+<script>
+    // Save this user's username so our JS deleteItem() function can determine
+    // whether show delete buttons
+    const myUserName = "{{ request.user.username }}"
+
+    // If you wish to use the template language's URL reverse function, you can
+    // do it here in the HTML file, but not in the JS file
+    const addItemURL = "{% url 'ajax-add-item' %}"
+    const deleteItemURL = function (id) {
+        return "{% url 'ajax-delete-item' 0 %}".replace("0",id)
+    }
+
+    // Call getList() as soon as page is finished loading to display the todolist
+    window.onload = getList;
+
+    // ... also call getList every 5 seconds hereafter to update the list
+    window.setInterval(getList, 2000);
+</script>
+
+</body>
+</html>

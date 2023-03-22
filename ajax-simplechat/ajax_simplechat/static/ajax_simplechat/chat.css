@@ -1,0 +1,96 @@
+.sidenav {
+    height: 100%;
+    width: 500px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    padding-top: 0px;
+    outline-style: solid;
+    outline-width: 1px;
+}
+
+input {
+    font-size: x-large;
+}
+
+button {
+    font-size: x-large;
+}
+
+label {
+    font-size: x-large;
+}
+
+li {
+    font-size: xx-large;
+}
+
+.title {
+    font-size: xx-large;
+    font-weight: bolder;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sub-title {
+    font-size: xx-large;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.error {
+    font-size: x-large;
+    color:red;
+}
+
+.add-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.delete-form {
+    display: inline;
+}
+
+a {
+    font-size: x-large;
+}
+
+a:hover {
+    background-color: lightgrey;
+}
+
+.details {
+    font-size: large;
+    font-style: italic;
+}
+
+.user-info {
+    position: absolute ;
+    right: 15px;
+    top:15px;
+    padding:15px;
+}
+
+span.username {
+    font-weight: bold;
+}
+
+div#enter {
+    position:absolute;
+    bottom:15px;
+    right:15px;
+}
+
+input#item {
+    width: 375px;
+}
+
+ol#todo-list {
+    position:absolute;
+    bottom:75px;
+    font-family: Arial, Helvetica, sans-serif;
+}
